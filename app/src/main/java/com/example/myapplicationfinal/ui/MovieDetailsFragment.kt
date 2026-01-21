@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.myapplicationfinal.databinding.FragmentMovieDetailsBinding
 
 class MovieDetailsFragment : Fragment() {
-
+//ViewBinding
     private lateinit var binding: FragmentMovieDetailsBinding
 
     override fun onCreateView(
