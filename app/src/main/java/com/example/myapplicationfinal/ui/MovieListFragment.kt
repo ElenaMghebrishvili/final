@@ -17,10 +17,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MovieListFragment : Fragment() {
-
+//ViewBinding
     private lateinit var binding: FragmentMovieListBinding
 
-    // 🔑 აქ ჩასვით შენი TMDB API Key
+    
     private val apiKey = "01c54e9c9d3168c6f247f7843f8b15ed"
 
     override fun onCreateView(
@@ -40,7 +40,7 @@ class MovieListFragment : Fragment() {
     private fun fetchMovies() {
         lifecycleScope.launch {
             try {
-                // Retrofit suspend call background thread-ზე
+                
                 val response = withContext(Dispatchers.IO) {
                     RetrofitInstance.api.getPopularMovies(apiKey)
                 }
@@ -50,7 +50,7 @@ class MovieListFragment : Fragment() {
                 if (movies.isEmpty()) {
                     Toast.makeText(requireContext(), "No movies found", Toast.LENGTH_SHORT).show()
                 } else {
-                    // RecyclerView Adapter
+               
                     binding.recyclerView.adapter = MovieAdapter(movies) { movie ->
                         val bundle = Bundle().apply {
                             putString("title", movie.title)
